@@ -4,7 +4,7 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  let numbers = ['1+', '2-', '3-', '4÷', '5x', '6+', '7+', '8-', '9+'];
+  let numbers = [1, 3, 2, 3, 2, 1, 2, 1, 3];
 
   return (
     <Container sx={{ width: '100vw', height: '100vh' }}>
@@ -12,28 +12,29 @@ function App() {
         <Typography variant='h5'>
           kenken.io
         </Typography>
-        <Grid2 container columns={12} sx={{
-            '--Grid-borderWidth': '4px',
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Grid2 container columns={3} spacing={0} sx={{
+            width: '40vh',
+            height: '40vh',
+            '--Grid-borderWidth': '3px',
             borderTop: 'var(--Grid-borderWidth) solid',
             borderLeft: 'var(--Grid-borderWidth) solid',
-            borderColor: '#000000',
+            borderColor: 'divider',
             '& > div': {
               borderRight: 'var(--Grid-borderWidth) solid',
               borderBottom: 'var(--Grid-borderWidth) solid',
-              borderColor: '#000000',
-            },
-            width: '50vh',
-            height: '50vh'
+              borderColor: 'divider',
+          },
         }}>
-          {numbers.map((number) => (
-            <Grid2 item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',  ":hover": {
-              backgroundColor: '#e0e0e0',
-              transition: 'all 0.3s ease'
-            } }}>
-              {number}
-            </Grid2>
-          ))}
-        </Grid2>
+            {numbers.map((number) => (
+              <Grid2 item xs={1} sx={{ p: 1 }}>
+                <Typography variant='h6'>
+                  {number}
+                </Typography>
+              </Grid2>
+            ))}
+          </Grid2>
+        </Box>
       </Box>
     </Container>
   );
